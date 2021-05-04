@@ -7,12 +7,12 @@ sum = 0
 
 if N % 2 == 0:                       # 짝수일 경우
     for i in range(0, a+1):           
-        b = int(math.factorial(a+i) / (math.factorial(a-i)*math.factorial(2*i)))    # 같은 요소를 포함하는 순열 구하는 공식을 미지수로 표현
+        b = int(math.factorial(a+i) / (math.factorial(a-i)*math.factorial(2*i)))    # 같은 요소가 있는 순열의 가지수를 미지수를 이용하여 공식화
         sum += b
 else:                                # 홀수일 경우
     for i in range(1,N-a+1):
-        b = int(math.factorial(a+i) / (math.factorial(a-j)*math.factorial(i+j)))    # 같은 요소를 포함하는 순열 구하는 공식을 미지수로 표현
+        b = int(math.factorial(a+i) / (math.factorial(a-j)*math.factorial(i+j)))    # 같은 요소가 있는 순열의 가지수를 미지수를 이용하여 공식화
         sum += b
-        j = j+1
+        j += 1
 
 print(sum)
