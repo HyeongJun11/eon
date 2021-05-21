@@ -1,7 +1,6 @@
 import numpy as np
 
 class DataBase:
-    
     def __init__(self,route):
         self.DB = np.loadtxt("./" + route, dtype = str)
     
