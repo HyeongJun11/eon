@@ -3,7 +3,6 @@ import numpy as np
 import DB
 
 class ManagementSystem:
-
     def __init__(self,route):
         self.txt = DataBase(route)
         self.menu()
