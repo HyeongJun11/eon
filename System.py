@@ -4,11 +4,11 @@ import DB
 
 class ManagementSystem:
     def __init__(self,route):
-        self.txt = DataBase(route)
+        self.text = DataBase(route)
         self.menu()
 
     def menu(self):
-        self.array = np.array(self.txt.DB,str)
+        self.array = np.array(self.text.DB,str)
         print("---도서 관리 시스템---")
         print("1.도서 추가")
         print("2.도서 검색")
@@ -45,8 +45,8 @@ class ManagementSystem:
         self.publicationyear = input("출판년도: ")
         self.publisher = input("출판사명: ")
         self.genre = input("장르: ")
-        self.txt.DB = np.append(self.txt.DB, [[self.bookname,self.author,self.publicationyear,self.publisher,self.genre]], axis=0)
-        print(self.txt.DB)
+        self.text.DB = np.append(self.text.DB, [[self.bookname,self.author,self.publicationyear,self.publisher,self.genre]], axis=0)
+        print(self.text.DB)
 
     def search(self):    # 도서검색
         print("1.도서명 검색")
@@ -58,8 +58,8 @@ class ManagementSystem:
         self.option = int(input("검색할 방법을 선택하세요 : "))
         if self.option == 1:
             self.bookname = input("검색할 도서명: ")
-            self.array = np.array(self.txt.DB,str)
-            for i in range(len(self.txt.bookname)):
+            self.array = np.array(self.text.DB,str)
+            for i in range(len(self.text.bookname)):
                 self.list1 = []
                 self.list2 = []
                 self.a = np.append(self.list2,[self.bookname],axis = 0)
@@ -69,8 +69,8 @@ class ManagementSystem:
                 
         elif self.option == 2:
             self.author = input("검색할 저자: ")
-            self.array = np.array(self.txt.DB,str)
-            for i in range(len(self.txt.author)):
+            self.array = np.array(self.text.DB,str)
+            for i in range(len(self.text.author)):
                 self.list1 = []
                 self.list2 = []
                 self.a = np.append(self.list2,[self.author],axis = 0)
@@ -80,8 +80,8 @@ class ManagementSystem:
 
         elif self.option == 3:
             self.publicationyear = input("검색할 출판년도: ")
-            self.array = np.array(self.txt.DB,str)
-            for i in range(len(self.txt.publicationyear)):
+            self.array = np.array(self.text.DB,str)
+            for i in range(len(self.text.publicationyear)):
                 self.list1 = []
                 self.list2 = []
                 self.a = np.append(self.list2,[self.publicationyear],axis = 0)
@@ -91,8 +91,8 @@ class ManagementSystem:
 
         elif self.option == 4:
             self.publisher = input("검색할 출판사명: ")
-            self.array = np.array(self.txt.DB,str)
-            for i in range(len(self.txt.publisher)):
+            self.array = np.array(self.text.DB,str)
+            for i in range(len(self.text.publisher)):
                 self.list1 = []
                 self.list2 = []
                 self.a = np.append(self.list2,[self.publisher],axis = 0)
@@ -102,8 +102,8 @@ class ManagementSystem:
 
         elif self.option == 5:
             self.genre = input("검색할 장르: ")
-            self.array = np.array(self.txt.DB,str)
-            for i in range(len(self.txt.genre)):
+            self.array = np.array(self.text.DB,str)
+            for i in range(len(self.text.genre)):
                 self.list1 = []
                 self.list2 = []
                 self.a = np.append(self.list2,[self.genre],axis = 0)
@@ -119,50 +119,50 @@ class ManagementSystem:
             self.name = input("수정할 내용 : ")
             for i in range(len(self.text.DB)):
                 if i == self.num:
-                    self.txt.DB[i][0] = self.name
-                    print(self.txt.DB[i])
+                    self.text.DB[i][0] = self.name
+                    print(self.text.DB[i])
         elif self.change == 1:
             self.num = int(input("수정할 책 번호(단, 첫줄부터 0) :"))    
             self.name = input("수정할 내용 : ")
-            for i in range(len(self.txt.DB)):
+            for i in range(len(self.text.DB)):
                 if i == self.num:
-                    self.txt.DB[i][1] = self.name
-                    print(self.txt.DB[i])
+                    self.text.DB[i][1] = self.name
+                    print(self.text.DB[i])
         elif self.change == 2:
             self.num = int(input("수정할 책 번호(단, 첫줄부터 0) :"))    
             self.name = input("수정할 내용 : ")
-            for i in range(len(self.txt.DB)):
+            for i in range(len(self.text.DB)):
                 if i == self.num:
-                    self.txt.DB[i][2] = self.name
-                    print(self.txt.DB[i])
+                    self.text.DB[i][2] = self.name
+                    print(self.text.DB[i])
         elif self.change == 3:
             self.num = int(input("수정할 책 번호(단, 첫줄부터 0) :"))    
             self.name = input("수정할 내용 : ")
-            for i in range(len(self.txt.DB)):
+            for i in range(len(self.text.DB)):
                 if i == self.num:
-                    self.txt.DB[i][3] = self.name
-                    print(self.txt.DB[i])
+                    self.text.DB[i][3] = self.name
+                    print(self.text.DB[i])
         elif self.change == 4:
             self.num = int(input("수정할 책 번호(단, 첫줄부터 0) :"))    
             self.name = input("수정할 내용 : ")
-            for i in range(len(self.txt.DB)):
+            for i in range(len(self.text.DB)):
                 if i == self.num:
-                    self.txt.DB[i][4] = self.name
-                    print(self.txt.DB[i])
+                    self.text.DB[i][4] = self.name
+                    print(self.text.DB[i])
 
     def delete(self):     # 도서삭제
-        print(self.txt.DB)
+        print(self.text.DB)
         self.tt = int(input("삭제할 책 번호(단, 첫줄부터 0) :"))
-        for i in range(len(self.txt.DB)):
+        for i in range(len(self.text.DB)):
             if i == self.tt:
-               self.txt.DB = np.delete(self.txt.DB,(i),axis = 0) 
-               print(self.txt.DB)
+               self.text.DB = np.delete(self.text.DB,(i),axis = 0) 
+               print(self.text.DB)
 
     def booklist(self):    # 도서목록나열
-        print(self.txt.DB)
+        print(self.text.DB)
                
     def save(self):       # 저장
-        np.save("C:/Users/junn7/eon/input.txt",self.txt.DB)
+        np.save("C:/Users/junn7/eon/input.txt",self.text.DB)
         self.saveload = np.load("C:/Users/junn7/eon/input.txt.npy")
         print(self.saveload)
 
